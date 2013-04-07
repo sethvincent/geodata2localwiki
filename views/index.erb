@@ -1,0 +1,11 @@
+<h1><%= @sitename %></h1>
+<code><%= @geodata %></code>
+
+<form action="/" method="POST">
+  <input type="hidden" name="_method" value="POST">
+  <label for="text">wiki page:</label>
+  <input type="text" name="pagename">
+  <label for="textarea">geojson:</label>
+  <textarea id="geojson" type="textarea" name="geodata"></textarea>
+  <input type="submit" name="submit" value="Save">
+</form>
