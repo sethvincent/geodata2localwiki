@@ -1,10 +1,24 @@
 <form action="/" method="POST">
   <input type="hidden" name="_method" value="POST">
+
   <label for="text">wiki page name:</label>
-  <input type="text" name="pagename" class="text" />
+  <input type="text" name="pagename" class="text" required />
   <span class="caption">If the page doesn't exist it will be created.</span>
+
   <label for="textarea">geojson:</label>
-  <textarea id="geojson" type="textarea" name="geodata" class="text"></textarea>
+  <textarea id="geojson" type="textarea" name="geodata" class="text" required ></textarea>
+  <span class="caption">See geojson examples below form for formatting help.</span>
+
+  <label for="text">wiki url:</label>
+  <input type="text" name="url" class="text" required />
+
+  <label for="text">your username on the wiki:</label>
+  <input type="text" name="username" class="text" required />
+
+  <label for="text">your apikey for the wiki:</label>
+  <input type="password" name="apikey" class="text" required />
+  <span class="caption">Copy and paste that thing in here. We don't save your api key.</span>
+
   <input type="submit" name="submit" class="button" value="submit">
 </form>
 

@@ -1,24 +1,21 @@
 require 'sinatra'
 require 'localwiki_client'
 require 'json'
-
-before do
-  @site = 'ec2-54-234-151-52.compute-1.amazonaws.com'
-  @wiki = LocalwikiClient.new @site, ENV['LOCALWIKI_USER'], ENV['LOCALWIKI_API_KEY']
-end
+require 'uri'
 
 get '/' do
-  @sitename = @wiki.site.name
-  map = @wiki.fetch(:map, 'Front Page')
-  @geodata = map.geom.to_json
   erb :index
 end
 
-
 # todo:
-# handle page names better
 # allow upload of kml, shp, geojson files
 post '/' do
+  uri = URI.parse(params['url'])
+  uri = URI.parse("http://#{params['url']}") if uri.scheme.nil?
+
+  @site = uri.host.downcase
+  @wiki = LocalwikiClient.new @site, params['username'], params['apikey']
+
   pagename = params['pagename']
   geodata = JSON.parse(params['geodata'])
   @wiki.create(:page, { name: pagename, content: '' }.to_json)
@@ -28,14 +25,16 @@ post '/' do
     page: "/api/page/#{pagename}"
   }.to_json
 
-  puts @new_map
   @wiki.create(:map, @new_map)
   
-  redirect "/ok?pagename="+ pagename.to_s.strip.gsub(' ', "_")
+  pagename = pagename.to_s.strip.gsub(' ', "_")
+  redirect "/ok?pagename=#{pagename}&url=#{@site}"
 end
 
 get '/ok' do
   @pagename = params['pagename']
+  @site = params['url']
+  @wiki = LocalwikiClient.new @site
   @page = @wiki.fetch(:page, @pagename)
   erb :ok
 end  

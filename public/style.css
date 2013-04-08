@@ -61,10 +61,15 @@ form label {
   font-size: 0.8em;
 }
 
+form label:before {
+    content : "* ";
+    color   : red;
+}
+
 input.text, textarea.text {
   width: 100%;
   border: 1px solid rgb(225, 225, 220);
-  margin: 0px 0px 5px 0px;
+  margin: 0px 0px 15px 0px;
   padding: 5px;
 }
 
@@ -73,7 +78,7 @@ form span.caption {
   text-transform: uppercase;
   color: rgb(185, 185, 180);
   letter-spacing: 1px;
-  margin: -5px 0px 10px 0px;
+  margin: -15px 0px 10px 0px;
   display: block;
 }
 
