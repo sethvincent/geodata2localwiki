@@ -68,7 +68,17 @@ input.text, textarea.text {
   padding: 5px;
 }
 
+form span.caption {
+  font-size: 0.6em;
+  text-transform: uppercase;
+  color: rgb(185, 185, 180);
+  letter-spacing: 1px;
+  margin: -5px 0px 10px 0px;
+  display: block;
+}
+
 .button {
+  display: inline-block;
   border: 0px;
   color: rgb(105, 105, 100);
   background-color: rgb(235, 235, 230);
@@ -91,6 +101,10 @@ pre {
   background-color: rgba(225, 225, 220, 0.3);
   padding: 15px;
   margin-bottom: 10px;
+}
+
+.small {
+  font-size: 0.7em;
 }
 
 @media only screen and (min-width: 500px) {

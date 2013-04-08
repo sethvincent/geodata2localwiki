@@ -21,7 +21,7 @@ end
 post '/' do
   pagename = params['pagename']
   geodata = JSON.parse(params['geodata'])
-  @wiki.create(:page, { name: pagename, content: 'map test' }.to_json)
+  @wiki.create(:page, { name: pagename, content: '' }.to_json)
 
   @new_map = {
     geom: geodata,
@@ -35,6 +35,7 @@ post '/' do
 end
 
 get '/ok' do
-  @pizza = params['pagename']
+  @pagename = params['pagename']
+  @page = @wiki.fetch(:page, @pagename)
   erb :ok
 end  
