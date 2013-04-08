@@ -1,11 +1,58 @@
-<h1><%= @sitename %></h1>
-<code><%= @geodata %></code>
-
 <form action="/" method="POST">
   <input type="hidden" name="_method" value="POST">
-  <label for="text">wiki page:</label>
-  <input type="text" name="pagename">
+  <label for="text">wiki page name:</label>
+  <input type="text" name="pagename" class="text" />
   <label for="textarea">geojson:</label>
-  <textarea id="geojson" type="textarea" name="geodata"></textarea>
-  <input type="submit" name="submit" value="Save">
+  <textarea id="geojson" type="textarea" name="geodata" class="text"></textarea>
+  <input type="submit" name="submit" class="button" value="submit">
 </form>
+
+<h3>Examples of GeoJSON:</h3>
+<pre>
+{
+  "geometries":[
+    {
+      "coordinates": [-122.450771,37.762443],
+      "type":"Point"
+    }
+  ],
+  "type":"GeometryCollection"
+}
+</pre>
+
+<pre>
+{
+  "geometries":[
+    {
+      "coordinates":[
+        [
+          [-122.322157,47.639955],
+          [-122.32044,47.641979],
+          [-122.316492,47.641227],
+          [-122.312887,47.638335],
+          [-122.311256,47.636716],
+          [-122.310999,47.635791],
+          [-122.309024,47.635212],
+          [-122.307995,47.632783],
+          [-122.306535,47.632808],
+          [-122.306471,47.632812],
+          [-122.305484,47.634345],
+          [-122.304368,47.635357],
+          [-122.301579,47.634952],
+          [-122.301783,47.63289],
+          [-122.3013,47.632899],
+          [-122.301471,47.612651],
+          [-122.329881,47.612477],
+          [-122.327478,47.61861],
+          [-122.32765,47.627866],
+          [-122.323015,47.632783],
+          [-122.322328,47.636658],
+          [-122.322157,47.639955]
+        ]
+      ],
+      "type":"Polygon"
+    }
+  ],
+  "type":"GeometryCollection"
+}
+</pre>

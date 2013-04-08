@@ -1,0 +1,125 @@
+html,
+body,
+input,
+button,
+select,
+textarea {
+  font: 15px/25px "Helvetica Neue", Helvetica, arial, sans-serif;
+  color: #333;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 300;
+  margin-top: 25px;
+  margin-bottom: 5px;
+}
+
+a {
+  color: #E187B8;
+  text-decoration: none;
+}
+
+a:hover, a:focus {
+  color: #7E2054;
+}
+
+.container {
+  width: 100%;
+  margin: 0px auto;
+}
+
+.inner-wrapper {
+  width: 80%;
+  padding: 0px 10% 0px 10%;
+  margin: 0px auto;
+}
+
+header {
+  
+}
+
+footer {
+  
+}
+
+form {
+  margin-top: 30px;
+}
+
+form label {
+  clear: both;
+  display: block;
+  text-transform: uppercase;
+  color: rgb(125, 125, 120);
+  font-size: 0.8em;
+}
+
+input.text, textarea.text {
+  width: 100%;
+  border: 1px solid rgb(225, 225, 220);
+  margin: 0px 0px 5px 0px;
+  padding: 5px;
+}
+
+.button {
+  border: 0px;
+  color: rgb(105, 105, 100);
+  background-color: rgb(235, 235, 230);
+  margin:0px;
+  cursor: pointer;
+  padding: 5px 15px;
+}
+
+.button:hover {
+  color: rgb(45, 45, 40);
+  background-color: rgb(225, 225, 220);
+}
+
+.button:active {
+  color: rgb(245, 245, 240);
+  background-color: rgb(155, 155, 150);
+}
+
+pre {
+  background-color: rgba(225, 225, 220, 0.3);
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+@media only screen and (min-width: 500px) {
+  .container {
+    width: 480px;
+  }
+
+  .inner-wrapper {
+    padding: 0px 30px 0px 30px;
+  }
+}
+
+@media only screen and (min-width: 960px) {
+  .container {
+    width: 800px;
+  }
+}
+
+/* clearfix */
+.container:before,
+.container:after {
+  content: " ";
+  display: table;
+}
+
+.container:after {
+  clear: both;
+}
+
+.container {
+  *zoom: 1;
+}

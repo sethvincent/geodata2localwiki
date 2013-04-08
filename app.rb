@@ -17,7 +17,7 @@ end
 
 # todo:
 # handle page names better
-# allow upload of kml, shp
+# allow upload of kml, shp, geojson files
 post '/' do
   pagename = params['pagename']
   geodata = JSON.parse(params['geodata'])
@@ -31,10 +31,10 @@ post '/' do
   puts @new_map
   @wiki.create(:map, @new_map)
   
-  # this fails when pagename has spaces (boo) fix with: string.to_s.strip.gsub(' ', "_")
-  redirect "/ok?pagename="+ pagename
+  redirect "/ok?pagename="+ pagename.to_s.strip.gsub(' ', "_")
 end
 
 get '/ok' do
   @pizza = params['pagename']
+  erb :ok
 end  
